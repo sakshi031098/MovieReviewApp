@@ -7,7 +7,7 @@ export default function ReviewHistory() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:8001/showMovieReviews');
+        const response = await axios.get('http://13.126.212.61:8001/showMovieReviews');
         setReviews(response.data);
       } catch (error) {
         console.error('Error fetching reviews:', error);
