@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import api from '../api';
+import axios from 'axios';
 
 export default function ReviewForm({ onNewReview }) {
   const [reviewText, setReviewText] = useState('');
@@ -9,7 +9,7 @@ export default function ReviewForm({ onNewReview }) {
     if (!reviewText.trim()) return;
 
     try {
-      const response = await api.post('/addMovieReviews', { review: reviewText });
+      const response = await axios.post('http://13.126.212.61:8001/addMovieReviews', { review: reviewText });
       onNewReview(response.data);
       setReviewText('');
       window.location.reload(); // optional: remove if you're already updating state from parent
